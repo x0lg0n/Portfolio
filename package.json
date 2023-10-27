@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "kursor": "^0.1.6",
+    "scrollreveal": "^4.0.9"
+  }
+}

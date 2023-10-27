@@ -1,0 +1,570 @@
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+}
+:root {
+  --bg-color: #1f242d;
+  --second-bg-color: #2a3a52;
+  --text-color: #f5f9ff;
+  --main-color: #00c6ba;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+section {
+  min-height: 100vh;
+  padding: 10rem 9% 2rem;
+}
+/*******************Header Style********************/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 9%;
+  background: var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+.header a.logo {
+  font-family: "MADE Evolve Sans EVO Thin";
+}
+.header.stciky {
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+}
+.logo {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+.logo :hover {
+  color: var(--main-color);
+}
+/*******************Navbar Style********************/
+.navbar a {
+  font-size: 1.7rem;
+  color: var(--text-color);
+  margin-left: 4rem;
+  transition: 0.3s;
+}
+.navbar a:hover,
+.navbar a.active {
+  color: var(--main-color);
+}
+#menu-icon {
+  font-size: 3.6rem;
+  color: var(--text-color);
+  cursor: pointer;
+  display: none;
+}
+/*******************Scrollbar Style********************/
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background: #d1e5ff;
+}
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
+  border-radius: 10px;
+}
+/******************Ball Style********************/
+#field {
+  position: relative;
+  perspective: 250px;
+}
+.ball,
+#center {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 0.5em;
+  border: 1px solid black;
+  background-color: #ffff99;
+}
+.home {
+  display: -webkit-inline-flex;
+  justify-content: left;
+  align-items: center;
+  line-height: 3rem;
+  margin-top: 0.5rem;
+}
+.social-media a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border: 0.2rem solid var(--main-color);
+  border-radius: 50%;
+  cursor: pointer;
+  background: transparent;
+  box-shadow: 0 8px 10px var(--second-bg-color);
+  font-size: 2rem;
+  color: var(--main-color);
+  margin: 3rem 1.5rem 3rem 0;
+  transition: 0.5s ease;
+}
+.social-media a:hover {
+  background: var(--main-color);
+  color: var(--second-bg-color);
+}
+.social-media a i {
+  font-size: 2.5rem;
+  justify-content: center;
+  color: var(--main-color);
+}
+.social-media a i:hover {
+  color: var(--second-bg-color);
+}
+.home-ball {
+  position: absolute;
+  background-color: #ffff99;
+  margin-left: 20rem;
+  margin-top: 1rem;
+}
+/*******************Home Style********************/
+.home-content h3 {
+  font-size: 2rem;
+}
+.home .content h3:nth-of-type(2) {
+  margin-bottom: 2 rem;
+}
+span {
+  color: var(--main-color);
+}
+.name {
+  font-family: "Beautiful Feelings";
+  font-size: 3.5rem;
+}
+.home-content h1 {
+  font-family: "Anonymous Pro", monospace;
+  line-height: normal;
+  font-size: 7rem;
+}
+/*******************Button Style********************/
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background: var(--main-color);
+  border-radius: 4rem;
+  box-shadow: 0 0 1rem var(--main-color);
+  font-size: 1.6rem;
+  margin: 3rem 0 3rem;
+  color: var(--second-bg-color);
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+.btn:hover {
+  background: transparent;
+  color: var(--main-color);
+}
+/*******************About Style********************/
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  background: var(--second-bg-color);
+}
+.container {
+  width: 50%;
+  min-height: 100hv;
+  display: flex;
+  padding: 10px;
+}
+.card {
+  width: 350px;
+  height: 500px;
+  margin: auto auto auto;
+  perspective: 1000px;
+}
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transfrom 1s;
+  transform-style: preserve-3d;
+}
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  position: absolute;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+}
+.front {
+  background: url(/Images/ME.jpg);
+  background-size: cover;
+  background-position: initial;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+}
+.front-card{
+
+}
+.front h2 {
+  font-style: italic, bold;
+  font-family: "Beautiful Feelings";
+  font-size: 30px;
+  color: var(--main-color);
+  font-weight: 700;
+}
+.front p {
+  color: #fff;
+  font-style: italic, bold;
+  line-height: 20px;
+  font-size: 15px;
+}
+.front button {
+  width: 120p;
+  border: 2px solid #fff;
+  background-image: linear-gradient(
+    to right top,
+    #d16ba5,
+    #c777b9,
+    #ba83ca,
+    #aa8fd8,
+    #9a9ae1,
+    #8aa7ec,
+    #79b3f4,
+    #69bff8,
+    #52cffe,
+    #41dfff,
+    #46eefa,
+    #5ffbf1
+  );
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 8px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  color: #000;
+}
+.back {
+  background: #fff;
+  color: #333;
+  padding: 20px 40px;
+  transform: rotateY(180deg);
+}
+.back h2 {
+  font-size: 50px;
+  line-height: 55px;
+  margin-bottom: 10px;
+}
+.back h2 span {
+  font-weight: 400;
+}
+.back p {
+  font-size: 14px;
+}
+.back img {
+  width: 120px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+.col {
+  flex: 1;
+  text-align: center;
+  color: #1f242d;
+  font-size: 12px;
+  position: relative;
+}
+.col h2 {
+  font-size: 18px;
+}
+.col ::after {
+  content: "";
+  width: 1.5px;
+  height: 20px;
+  background: #1f242d;
+  position: absolute;
+  right: 0;
+  top: 17px;
+}
+.col:last-child::after {
+  display: none;
+}
+.col p {
+  margin-top: 1px;
+  color: #1f242d;
+}
+.back button {
+  background: #7800ad;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  padding: 8px 25px;
+  border-radius: 30px;
+  font-size: 14px;
+  margin-right: 15px;
+  box-shadow: 0 8px 10px rgba(120, 0, 173, 0.3);
+  cursor: pointer;
+}
+.back a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+}
+.back a img {
+  width: 50%;
+}
+.back a:hover {
+  background: #7800ad;
+}
+.about-content {
+  width: 50%;
+}
+.heading {
+  text-align: center;
+  font-size: 4.5rem;
+}
+.about-content h2 {
+  margin-bottom: 5rem;
+  font-family: "MADE Evolve Sans EVO Thin";
+}
+.heading-1 {
+  text-align: center;
+  font-size: 4.5rem;
+  margin-bottom: 5rem;
+  font-family: "MADE Evolve Sans EVO Thin";
+}
+.about-content h3 {
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+}
+.about-content p {
+  font-size: 1.6rem;
+  margin: 2rem 0 2rem;
+}
+.about-btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  align-items: center;
+  justify-content: center;
+  background: var(--main-color);
+  border-radius: 4rem;
+  box-shadow: 0 0 1rem var(--main-color);
+  font-size: 1.6rem;
+  margin: 3rem 18rem 3rem;
+  color: var(--second-bg-color);
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+.about-btn:hover {
+  background: transparent;
+  color: var(--main-color);
+}
+/*******************Services Style********************/
+.services h2 {
+  margin-bottom: 5rem;
+  font-family: "MADE Evolve Sans EVO Thin";
+}
+.services-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.services-container .services-box {
+  flex: 1 1 30rem;
+  background: var(--second-bg-color);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  padding: 3rem 2rem 4rem;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  /* border-radius: 2rem; */
+  text-align: center;
+  transition: 0.5s ease;
+}
+.services-container .services-box:hover {
+  border: 0.2rem solid var(--main-color);
+  transition: scale(1.1);
+}
+.services-box i {
+  font-size: 7rem;
+  color: var(--main-color);
+}
+.services-box h3 {
+  font-size: 2.6rem;
+}
+.services-box p {
+  font-size: 1.6rem;
+  margin: 1rem 0 3rem;
+}
+/*******************Portfolio Style********************/
+.portfolio {
+  background: var(--second-bg-color);
+}
+.portfolio h2 {
+  margin-bottom: 5rem;
+  font-family: "MADE Evolve Sans EVO Thin";
+}
+.portfolio-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 2.5rem;
+}
+.portfolio-container .portfolio-box {
+  position: relative;
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  overflow: hidden;
+  display: flex;
+}
+.portfolio-box img {
+  width: 100%;
+  transition: 0.5s ease;
+}
+.portfolio-box:hover img {
+  transform: scale(1.1);
+}
+.portfolio-box .portfolio-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  backdrop-filter: blur(15px);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 4rem;
+  background: transparent;
+  border: 2px solid #fff();
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  perspective: 3000;
+  transform: translateY(100%);
+  transition: transform 0.5s ease, height 0.2s ease;
+}
+.portfolio-box:hover .portfolio-layer {
+  transform: translateY(0);
+  transition: smooth;
+}
+.portfolio-layer h4 {
+  font-size: 3rem;
+  font-family: "Anonymous Pro", monospace;
+}
+.portfolio-layer p {
+  font-size: 1.6rem;
+  margin: 0.3rem 0 1rem;
+}
+.portfolio-layer a {
+  width: 5rem;
+  height: 5rem;
+  background: var(--text-color);
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 2rem;
+  margin: 2rem 1.5rem 2rem 0;
+  transition: 0.5s ease;
+}
+.portfolio-layer a:hover {
+  background: var(--main-color);
+  color: var(--second-bg-color);
+  box-shadow: 0 0 1rem var(--main-color);
+}
+.portfolio-layer a i {
+  font-size: 2rem;
+  justify-content: center;
+  color: var(--second-bg-color);
+}
+/*******************Contact Style********************/
+.contact h2 {
+  margin-bottom: 5rem;
+  font-family: "MADE Evolve Sans EVO Thin";
+}
+.contact form {
+  max-width: 70rem;
+  margin: 1rem auto;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.contact form .input-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.contact form .input-box input,
+.contact form textarea {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  background: var(--second-bg-color);
+  border: 0.8rem;
+  margin: 0.7rem 0;
+}
+.contact form .input-box input {
+  width: 49%;
+}
+.contact form textarea {
+  resize: none;
+}
+.contact form .input-box input:focus,
+.contact form textarea:focus {
+  border: 0.1rem solid var(--main-color);
+}
+.contact form .btn {
+  margin-top: 2rem;
+  cursor: pointer;
+}
+.footer-bottom {
+  min-height: 60px;
+  margin-top: 52px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--second-bg-color);
+  font-size: 14px;
+  opacity: 0.8;
+}

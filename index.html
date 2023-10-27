@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio.io</title>
+    <link rel="shortcut icon" href="Images/folder.png" type="image/x-icon">
+    <!-- -- box icons -- -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="Styles/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css" />
+  </head>
+
+  <body>
+    <!-- header design -->
+    <header class="header">
+      <a href="index.html" class="logo">PORTFOLIO<span>.IO</span></a>
+
+      <i class="bx bx-menu" id="menu-icon"></i>
+
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <!-- home section design -->
+    <main>
+      <section class="home" id="home">
+        <div class="home-content">
+          <h3>I'M<span class="name"> Siddhartha Kunwar</span></h3>
+          <h3>And I'm a</h3>
+          <h1><span class="multiple-text"></span></h1>
+          <a href="#" class="btn">Download CV</a>
+          <div class="social-media">
+            <a href="https://twitter.com/Siddhar08995842"
+              ><i class="bx bxl-twitter"></i
+            ></a>
+            <a href="https://www.instagram.com/siddhartha.002/"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="https://www.linkedin.com/in/siddhartha-kunwar/"
+              ><i class="bx bxl-linkedin"></i
+            ></a>
+            <a href="https://github.com/SCARLLET-hub"
+              ><i class="bx bxl-github"></i
+            ></a>
+          </div>
+        </div>
+        <div class="home-ball">
+          <!-- <img src="/Images/home.png" alt="home-img" /> -->
+          <div id="field"></div>
+
+          <script type="text/javascript">
+            (function () {
+              var field = document.getElementById("field");
+
+              for (var i = 0; i < 180; i++) {
+                var b = document.createElement("div");
+                b.className = "ball";
+                b.style.backgroundColor = "hsl(" + i + ",100%,70%)";
+                field.appendChild(b);
+              }
+
+              field.style.height = window.innerHeight + "px";
+              field.style.perspectiveOrigin =
+                window.innerWidth / 2 + "px " + window.innerHeight / 2 + "px";
+
+              var maxX = window.innerWidth;
+              var maxY = window.innerHeight;
+
+              var gridSize = 150;
+              var balls = document.getElementsByClassName("ball");
+
+              for (var i = 0; i < balls.length; i++) {
+                var ball = balls[i];
+
+                ball.stretchFactor = 1 + Math.random() * 3;
+
+                ball.angle = (Math.PI / 180) * i;
+
+                ball.duration = Math.random() * (16 - 8) + 8;
+
+                ball.start = null;
+              }
+
+              function step(timestamp) {
+                var progress, x, y, z;
+
+                for (var i = 0; i < balls.length; i++) {
+                  var ball = balls[i];
+
+                  if (ball.start === null) {
+                    ball.start = timestamp;
+                  }
+
+                  ball.progress =
+                    (timestamp - ball.start) / ball.duration / 1000;
+
+                  x = Math.cos(ball.progress * 2 * Math.PI);
+                  z = Math.sin(ball.progress * 2 * Math.PI);
+
+                  x = x * gridSize + maxX / 2;
+                  y = maxY / 2;
+                  z = z * gridSize;
+
+                  var rx =
+                    (y - maxY / 2) * Math.sin(ball.angle) +
+                    (x - maxX / 2) * Math.cos(ball.angle) +
+                    maxX / 2;
+                  var ry =
+                    (y - maxY / 2) * Math.cos(ball.angle) -
+                    (x - maxX / 2) * Math.sin(ball.angle) +
+                    maxY / 2;
+
+                  ball.style.transform = `translate3d(${rx}px, ${ry}px, ${z}px)`;
+                  ball.style.zIndex = Math.round(z);
+
+                  if (ball.progress >= 1) ball.start = null;
+                }
+
+                requestAnimationFrame(step);
+              }
+
+              requestAnimationFrame(step);
+            })();
+          </script>
+        </div>
+      </section>
+      <!-- about section design -->
+      <section class="about" id="about">
+        <div class="container">
+          <div class="card">
+            <div class="card-inner">
+              <div class="front">
+                <div class="front-card">
+                  <h2>Siddhartha Kunwar</h2>
+                  <p>Student, India</p>
+                  <button>Hover Me</button>
+                </div>
+              </div>
+              <div class="back">
+                <img src="/Images/waving-hand.png" alt="wave" />
+                <h2>Siddhartha <span>Kunwar</span></h2>
+                <p>loreum ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <div class="row">
+                  <div class="col">
+                    <h2>12K</h2>
+                    <p>Followers</p>
+                  </div>
+                  <div class="col">
+                    <h2>250</h2>
+                    <p>Following</p>
+                  </div>
+                  <div class="col">
+                    <h2>1K</h2>
+                    <p>Likes</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <button>FOllow</button>
+                  <a href="#"><img src="/Images/instagram.png" alt="" /></a>
+                  <a href="#"><img src="/Images/pinterest.png" alt="" /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <h2 class="heading-1">About<span> Me</span></h2>
+          <h3 class="content">
+            Hey There! I'm <span class="name">Siddhartha Kunwar</span>
+          </h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+            doloribus tempore voluptatem excepturi nostrum, ipsum quis labore
+            voluptates fugiat pariatur numquam optio, sequi expedita temporibus
+            iusto tenetur! Recusandae, magnam error.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor est
+            deleniti illo, sunt mollitia eligendi quos. Distinctio illum fuga
+            odio, facilis nulla libero dignissimos accusamus blanditiis,
+            officiis recusandae a. Ullam!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+            distinctio maxime, hic exercitationem repellat, temporibus deserunt
+            animi dolorem doloribus laborum magnam. Distinctio qui illum
+            voluptatum quod necessitatibus. Itaque, eligendi perferendis.
+          </p>
+          <a href="#" class="about-btn">Read More</a>
+        </div>
+      </section>
+
+      <!-- Service section design   -->
+      <section class="services" id="services">
+        <h2 class="heading">Our <span>Services</span></h2>
+
+        <div class="services-container">
+          <div class="services-box">
+            <i class="bx bx-network-chart"></i>
+            <h3>Machine Learning</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Inventore saepe alias adipisci ea fuga laudantium illum libero
+              quos facilis perferendis.
+            </p>
+            <a href="#" class="btn">Read More</a>
+          </div>
+
+          <div class="services-box">
+            <i class="bx bx-bar-chart-alt"></i>
+            <h3>Content Creator</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Inventore saepe alias adipisci ea fuga laudantium illum libero
+              quos facilis perferendis.
+            </p>
+            <a href="#" class="btn">Read More</a>
+          </div>
+
+          <div class="services-box">
+            <i class="bx bx-code-alt"></i>
+            <h3>Web Development</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Inventore saepe alias adipisci ea fuga laudantium illum libero
+              quos facilis perferendis.
+            </p>
+            <a href="#" class="btn">Read More</a>
+          </div>
+        </div>
+      </section>
+      <!-- Portfolio section design -->
+      <section class="portfolio" id="portfolio">
+        <h2 class="heading">Latest <span> Project</span></h2>
+
+        <div class="portfolio-container">
+          <!-- portfolio-box1 -->
+          <div class="portfolio-box">
+            <img src="Images/portfolio1.jpg" alt="img" />
+            <div class="portfolio-layer">
+              <h4>Web Design</h4>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Minima, quaerat?
+              </p>
+              <a href="#"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+          <!-- portfolio-box2 -->
+          <div class="portfolio-box">
+            <img src="Images/portfolio2.jpg" alt="img" />
+            <div class="portfolio-layer">
+              <h4>Web Design</h4>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Minima, quaerat?
+              </p>
+              <a href="#"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+          <!-- portfolio-box3 -->
+          <div class="portfolio-box">
+            <img src="Images/portfolio3.jpg" alt="img" />
+            <div class="portfolio-layer">
+              <h4>Web Design</h4>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Minima, quaerat?
+              </p>
+              <a href="#"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+          <!-- portfolio-box4 -->
+          <div class="portfolio-box">
+            <img src="Images/portfolio4.jpg" alt="img" />
+            <div class="portfolio-layer">
+              <h4>Web Design</h4>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Minima, quaerat?
+              </p>
+              <a href="#"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+          <!-- portfolio-box5 -->
+          <div class="portfolio-box">
+            <img src="Images/portfolio5.jpg" alt="img" />
+            <div class="portfolio-layer">
+              <h4>Web Design</h4>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Minima, quaerat?
+              </p>
+              <a href="#"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+          <!-- portfolio-box6 -->
+          <div class="portfolio-box">
+            <img src="Images/portfolio6.jpg" alt="img" />
+            <div class="portfolio-layer">
+              <h4>Web Design</h4>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Minima, quaerat?
+              </p>
+              <a href="#"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- contact section design -->
+      <section class="contact" id="contact">
+        <h2 class="heading"><span>Let's </span>Connect</h2>
+
+        <form action="">
+          <div class="input-box">
+            <input type="text" placeholder="Full Name" />
+            <input type="email" placeholder="Email Address" />
+          </div>
+          <div class="input-box">
+            <input type="number" placeholder="Mobile Number" />
+            <input type="text" placeholder="Email Subject" />
+          </div>
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Your Message"
+          ></textarea>
+          <input type="submit" value="Send Message" class="btn" />
+        </form>
+      </section>
+    </main>
+    <!-- footer section design -->
+    <footer class="footer">
+      <div class="footer-bottom">
+        <p>© 2023 All Rights Reserved. Designed by Siddhartha Kunwar</p>
+      </div>
+    </footer>
+    <!-- jquery cdn link -->
+    <!-- scroll reveal animation -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- typed js script -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- custom js script -->
+    <script src="/Scripts/script.js"></script>
+    <script src="https://unpkg.com/kursor"></script>
+    <script>
+      new kursor({
+        type: 1,
+        color: "#0ef",
+      });
+    </script>
+  </body>
+</html>
